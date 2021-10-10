@@ -1,9 +1,14 @@
 .footer {
   position: absolute;
-  display: block;
+  @include isTablet {
+    position:relative;
+  } 
   bottom: 0;
   left: 0;
-  height: 227px;
+  height: 205px;
+  @include isMobile {
+    height: 120px;
+  }
   width: 100%;
   background: white;
   @include flex(row);

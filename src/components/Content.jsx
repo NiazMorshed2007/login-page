@@ -8,7 +8,7 @@ const Content = (props) => {
     { text: "Password", icon: <VscKey /> },
   ];
   return (
-    <div className="content">
+    <div className={!props.left ? 'right-content' : 'left-content'}>
       {props.left ? (
         <>
           <h1>Get exclusive access</h1>
