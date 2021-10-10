@@ -1,0 +1,169 @@
+.wrapper {
+  width: 100vw;
+  height: 100vh;
+  background-color: #f3f5f5;
+  @include flex(row);
+  // left side
+  .left {
+    width: 45%;
+    background: $leftGrad;
+    position: relative;
+    overflow: hidden;
+    color: white;
+    .content {
+      padding: 40px 80px;
+      text-align: right;
+      position: relative;
+      height: 100%;
+      @include flex(column);
+      justify-content: center;
+      h1 {
+        font-size: 35px;
+      }
+      p {
+        padding: 20px 0;
+        font-size: 15px;
+        z-index: 1;
+      }
+    }
+    .ellipse {
+      width: 840px;
+      height: 680px;
+      border-radius: 50%;
+      background: $ellipseCl;
+      position: absolute;
+      bottom: -50%;
+      left: -50%;
+    }
+  }
+  // right side
+  .right {
+    color: black;
+    @extend .left;
+    width: 55%;
+    background: $rightGrad;
+    .content {
+      align-items: center;
+      form {
+        width: 80%;
+        padding-top: 40px;
+        @include flex(column);
+        gap: 3em;
+        label {
+          position: relative;
+          width: 100%;
+          input {
+            width: 100%;
+            height: 100%;
+            padding: 7px;
+            outline: none;
+            border: none;
+            background: transparent;
+            padding-left: 30px;
+            &:focus ~ span {
+              color: $darkBl;
+              transform: translateY(-30px);
+              font-size: 12px;
+            }
+            &:valid ~ span {
+              color: $darkBl;
+              transform: translateY(-30px);
+              font-size: 12px;
+            }
+            &:focus ~ i {
+              svg {
+                color: $lightBl;
+              }
+            }
+            &:valid ~ i {
+              svg {
+                color: $lightBl;
+              }
+            }
+            &:focus ~ .line-wrapper {
+              .line {
+                &::before {
+                  transform: translateX(0%);
+                }
+              }
+            }
+            &:valid ~ .line-wrapper {
+              .line {
+                &::before {
+                  transform: translateX(0%);
+                }
+              }
+            }
+          }
+          .line-wrapper {
+            position: absolute;
+            width: 100%;
+            height: 3px;
+            background: $silverTy;
+            bottom: -10px;
+            overflow: hidden;
+            .line {
+              width: 100%;
+              height: 100%;
+              position: relative;
+              &::before {
+                content: "";
+                position: absolute;
+                display: block;
+                width: 100%;
+                height: 100%;
+                background: $lightBl;
+                top: 0;
+                left: 0;
+                transition: all 0.3s ease-in-out;
+                transform: translateX(-100%);
+              }
+            }
+          }
+          span {
+            position: absolute;
+            top: 50%;
+            left: 30px;
+            transform: translateY(-50%);
+            transition: all 0.2s ease-in-out;
+            pointer-events: none;
+            color: silver;
+          }
+          i {
+            position: absolute;
+            top: 50%;
+            left: 30px;
+            transform: translateY(-50%);
+            left: 0;
+            @include flex(row);
+            align-items: center;
+            pointer-events: none;
+            color: silver;
+            justify-content: center;
+            svg {
+              transition: all 0.2s ease-in-out;
+              font-size: 22px;
+            }
+          }
+        }
+        button {
+          width: 140px;
+          @include flex(row);
+          align-self: center;
+          justify-content: center;
+          @include btn($leftGrad);
+          color: white;
+          font-weight: 500;
+          font-size: 17px;
+          margin-top: 40px;
+          z-index: 4;
+        }
+      }
+      p {
+        color: silver;
+        font-size: 11px;
+        z-index: 4;
+      }
+    }
+  }
+}

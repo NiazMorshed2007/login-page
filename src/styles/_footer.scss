@@ -1,0 +1,37 @@
+.footer {
+  position: absolute;
+  display: block;
+  bottom: 0;
+  left: 0;
+  height: 227px;
+  width: 100%;
+  background: white;
+  @include flex(row);
+  align-items: center;
+  justify-content: center;
+  gap: 2em;
+  z-index: 3;
+
+  button {
+    @include btn($leftGrad);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    svg {
+      color: white;
+      font-size: 17px;
+    }
+  }
+  .facebook {
+    @include btn($fb);
+    border-radius: 50%;
+  }
+  .linkedin {
+    @include btn($linkedin);
+    border-radius: 50%;
+  }
+  .google {
+    @include btn(rgb(253, 253, 253));
+    border-radius: 50%;
+  }
+}

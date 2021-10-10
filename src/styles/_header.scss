@@ -1,0 +1,34 @@
+header {
+  position: absolute;
+  width: 100%;
+  padding: 25px 10px;
+  @include flex(row);
+  align-items: center;
+  margin-left: auto;
+  z-index: 2;
+  img {
+    width: 70px;
+    height: 80px;
+    object-fit: contain;
+  }
+  h5 {
+    font-size: 21px;
+  }
+}
+
+.right-header {
+  justify-content: flex-end;
+  padding: 30px;
+  gap: 1em;
+  p {
+    font-size: 14px;
+    color: rgb(107, 107, 107);
+    cursor: pointer;
+    &:hover {
+      color: $lightBl;
+    }
+  }
+  button {
+    @include btn(white);
+  }
+}
